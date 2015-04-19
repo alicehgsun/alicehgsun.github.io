@@ -12,10 +12,15 @@ p{
     text-align: left;
     top:140px;
     color:black;
-    z-index:15;}
+    z-index:15;
+  line-height: 1.5;}
+
+
 .Container {
   width: 100%;
 }
+
+
 .Container .Left,
 .Container .Right {
   position: absolute;
@@ -24,6 +29,8 @@ p{
   margin: 0;
   padding: 20px;
 }
+
+
 .Container .Left {
   left: 0;
 }
@@ -32,9 +39,16 @@ p{
   background-color: white;
   height: 170vh;
 }
-p{line-height: 1.5;}
+
 .textarea{padding-top: 20px;}
 .mydiary{color:#252525;}
+
+p > * {
+    -webkit-transition: color 2.5s;
+    -moz-transition:    color 2.5s;
+    -ms-transition:     color 2.5s;
+    -o-transition:      color 2.5s;
+    transition:         color 2.5s;}
   
   </style>
   </head>
@@ -64,6 +78,8 @@ Please write your own diary with the words you've got.
 <script src="http://code.jquery.com/jquery-2.1.3.min.js">
     </script>
       <script>
+
+
 $(document).ready(function() {
     var button = $('last');
     button.click(function() {
