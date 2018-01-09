@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>1029</title>
+
+	<style>
+	 #format { margin-top: 2em; }
+		.buttons {width:50px;padding: 50px}
+		.ui {cursor:pointer;padding-bottom: 20px;font-family: "Trebuchet MS"; line-height: 2; font-size: 10pt}
+		a:visited {
+    color: pink;
+    text-decoration: underline;}
+    a:hover {
+    text-decoration: underline;}
+    p{text-align: center;display: none;font-size: 9pt;font-family: "Trebuchet MS"}
+		.furniture,.water,.electric,.trash{opacity:.5;}
+		.wall{background-color: rgb(230, 230, 184); position: absolute}
+		.window{background-color:lightblue;position:absolute;}
+		.door{background-color: cyan; position: absolute}
+		.furniture{background-color: pink;position:absolute;}
+		.water{background-color: #819FF7;position: absolute;}
+		.electric{background-color: yellow;position: absolute;}
+		.plug{background-color: red;position: absolute;}
+		.trash{background-color: grey;position:absolute;}
+		div.furniture:hover {opacity: 1} 
+		div.furniture:hover > p {display: block;}
+		div.door:hover {opacity: 1} 
+		div.door:hover > p {display: block;}
+		div.water:hover {opacity: 1} 
+		div.water:hover > p {display: block;}
+		div.electric:hover {opacity: 1} 
+		div.electric:hover > p {display: block;}
+		div.plug:hover {opacity: 1} 
+		div.plug:hover > p {display: block;}
+		div.trash:hover {opacity: 1} 
+		div.trash:hover > p {display: block;}
+		div.window:hover {opacity: 1} 
+		div.window:hover > p {display: block;}
+		#w1{top: 63px; left:187px;
+		width:202px;height:9px;}
+		#d1{top: 63px; left:389px;
+		width:65px;height:9px;}
+		#w2{top: 63px; left:454px;
+		width:233px;height:9px;}
+		#w3{top:63px;left:678px;
+			width:9px;height:531px;}
+		#w4{top:585px;left:661px;
+			width:26px;height:9px;}
+		#w5{top:585px;left:661px;
+			width:9px;height:34px;}
+		#w6{top:610px;left:652px;
+			width:18px;height:9px;}
+		#win1{top:610px;left:562px;
+			width:90px;height:9px;}
+		#w7{top:610px;left:542px;
+			width:20px;height:9px;}
+		#w8{top:585px;left:542px;
+			width:9px;height:34px;}
+		#w9{top:585px;left:484px;
+			width:67px;height:9px;}
+		#w10{top:585px;left:484px;
+			width:9px;height:34px;}
+		#w11{top:610px;left:474px;
+			width:19px;height:9px;}
+		#win2{top:610px;left:384px;
+			width:90px;height:9px;}
+		#w12{top:610px;left:365px;
+			width:19px;height:9px;}
+		#w13{top:585px;left:365px;
+			width:9px;height:34px;}
+		#w14{top:585px;left:307px;
+			width:67px;height:9px;}
+		#w15{top:585px;left:307px;
+			width:9px;height:34px;}
+		#w16{top:610px;left:297px;
+			width:19px;height:9px;}
+		#win3{top:610px;left:207px;
+			width:90px;height:9px;}
+		#w17{top:610px;left:187px;
+			width:20px;height:9px;}
+		#w18{top:63px;left:187px;
+			width:9px;height: 556px;}
+		#w19{top:63px;left:373px;
+			width:8px;height: 18px;}
+		#d2{top: 81px; left:373px;
+		width:8px;height:61px;}
+		#w20{top:142px;left:373px;
+			width:8px;height: 79px;}
+		#d3{top: 221px; left:373px;
+		width:8px;height:55px;}
+		#w21{top:276px;left:373px;
+			width:8px;height: 30px;}
+		#w22{top: 297px; left:323px;
+		width:58px;height:9px;}
+		#w23{top: 186px; left:323px;
+		width:9px;height:120px;}
+		#w24{top: 186px; left:323px;
+		width:58px;height:9px;}
+		#w25{top: 253px; left:187px;
+		width:145px;height:9px;}
+		#w26{top: 190px; left:187px;
+		width:24px;height:72px;}
+		#w27{top:63px;left:462px;
+			width:8px;height: 62px;}
+		#w28{top:277px;left:606px;
+			width:81px;height: 9px;}
+		#w29{top:228px;left:606px;
+			width:8px;height: 78px;}
+		#table{top:235px; left:494px;width:112px;height:64px;}
+		#chair1{top:218px; left:508px;width:22px;height:17px;}
+		#chair2{top:218px; left:563px;width:22px;height:17px;}
+		#chair3{top:299px; left:563px;width:22px;height:17px;}
+		#chair4{top:299px; left:508px;width:22px;height:17px;}
+		#kitchen{top:72px; left:470px;width:208px;height: 53px}
+		#sink{top:74px; left:620px; width:37px;height:29px;}
+		#stove{top:72px; left:470px; width:70px;height:53px;}
+		#kitchenTop{top:72px; left:490px;width:168px;height: 35px}
+		#fridge{top:213px; left:614px; width:64px;height:64px;}
+		#chair5{top:343px; left:598px;width:17px;height:22px;}
+		#desk1{top:286px; left:614px;width:64px;height:107px;}
+		#chair6{top:389px; left:262px;width:17px;height:22px;}
+		#desk2{top:324px; left:196px;width:64px;height:107px;}
+		#bed1{top:418px; left:596px; width:82px; height:167px;}
+		#bed2{top:502px; left:196px; height:82px; width:167px;}
+		#drawer1{top:544px; left:528px; width:68px; height:41px;}
+		#drawer2{top:431px; left:196px; height:68px; width:41px;}
+		#table2{top:352px; left:360px; width:86px; height:34px;}
+		#sofa1{top:306px; left:323px; width:123px; height:36px;}
+		#sofa2{top:342px; left:323px; width:28px; height:42px;}
+		#table3{top:575px; left:412px; width:40px; height:33px;}
+		#toilet{top:83px; left:196px; width:32px;height:23px;}
+		#fountain{top:132px; left:196px; width:12px;height:31px;}
+		#bath{top:190px; left:211px; width:112px;height:63px;}
+		#light1{top:100px; left:409px; 
+				border-radius: 50%;
+				width:17px;height:17px;}
+		#light2{top:218px; left:409px; 
+				border-radius: 50%;
+				width:17px;height:17px;}
+		#light3{top:146px; left:536px; 
+				border-radius: 50%;
+				width:43px;height:42px;}
+		#light4{top:306px; left:196px; 
+				width:482px;height:10px;}
+		#light5{top:85px; left:196px; 
+				width:6px;height:75px;}
+		#plug1{top:72px; left:550px; width:8px; height:2px;}
+		#plug2{top:261px; left:605px; width:2px; height:8px;}
+		#plug3{top:400px; left:677px; width:2px; height:8px;}
+		#plug4{top:583px; left:514px; width:8px; height:2px;}
+		#plug5{top:583px; left:336px; width:8px; height:2px;}
+		#plug6{top:307px; left:196px; width:2px; height:8px;}
+		#plug7{top:141px; left:196px; width:2px; height:8px;}
+		#plug8{top:180px; left:381px; width:2px; height:8px;}
+		#can1{top: 133px; left: 665px; width:13px; height:25px;}
+		#can2{top: 160px; left: 665px; width:13px; height:25px;}
+		#can3{top: 393px; left: 614px; height:13px; width:25px;}
+		#can4{top: 334px; left: 253px; width:13px; height:25px;}
+		#can5{top: 72px; left: 236px; height:13px; width:25px;}
+		.words{position: absolute; right:10%;top:38px; width:230px; font-family: "Trebuchet MS"}
+		h2{font-size: 13pt}
+	</style>
+</head>
+<body>
+
+<div class="buttons">
+<a id="furniture" class="ui">furniture</a>
+<a id="electric" class="ui">electric</a>
+<a id="water" class="ui">water</a>
+<a id="outlet" class="ui">outlet</a>
+<a id="trash" class="ui">trash</a>
+<a id="door" class="ui">door</a>
+</div>
+
+<div class="room">
+<div id="w1" class="wall"></div>
+<div id="d1" class="door"><p>1029A door</p></div>
+<div id="w2" class="wall"></div>
+<div id="w3" class="wall"></div>
+<div id="w4" class="wall"></div>
+<div id="w5" class="wall"></div>
+<div id="w6" class="wall"></div>
+<div id="win1" class="window"><p>window 3</p></div>
+<div id="w7" class="wall"></div>
+<div id="w8" class="wall"></div>
+<div id="w9" class="wall"></div>
+<div id="w10" class="wall"></div>
+<div id="w11" class="wall"></div>
+<div id="win2" class="window"><p>window 2</p></div>
+<div id="w12" class="wall"></div>
+<div id="w13" class="wall"></div>
+<div id="w14" class="wall"></div>
+<div id="w15" class="wall"></div>
+<div id="w16" class="wall"></div>
+<div id="win3" class="window"><p>window 1</p></div>
+<div id="w17" class="wall"></div>
+<div id="w18" class="wall"></div>
+
+<div id="w19" class="wall"></div>
+<div id="d2" class="door"><p>bathroom door</p></div>
+<div id="w20" class="wall"></div>
+<div id="d3" class="door"><p>closet door</p></div>
+<div id="w21" class="wall"></div>
+<div id="w22" class="wall"></div>
+<div id="w23" class="wall"></div>
+<div id="w24" class="wall"></div>
+<div id="w25" class="wall"></div>
+<div id="w26" class="wall"></div>
+
+<div id="w27" class="wall"></div>
+
+<div id="w28" class="wall"></div>
+<div id="w29" class="wall"></div>
+
+<div id="plug1" class="plug"><p>outlet 1</p></div>
+<div id="plug2" class="plug"><p>outlet 2</p></div>
+<div id="plug3" class="plug"><p>outlet 3</p></div>
+<div id="plug4" class="plug"><p>outlet 4</p></div>
+<div id="plug5" class="plug"><p>outlet 5</p></div>
+<div id="plug6" class="plug"><p>outlet 6</p></div>
+<div id="plug7" class="plug"><p>outlet 7</p></div>
+<div id="plug8" class="plug"><p>outlet 8</p></div>
+
+<div id="can1" class="trash"><p>trashcan 1</p></div>
+<div id="can2" class="trash"><p>trashcan 2</p></div>
+<div id="can3" class="trash"><p>trashcan 3</p></div>
+<div id="can4" class="trash"><p>trashcan 4</p></div>
+<div id="can5" class="trash"><p>trashcan 5</p></div>
+
+<div id="table" class="furniture"><p>table 1</p></div>
+<div id="chair1" class="furniture"><p>chair 1</p></div>
+<div id="chair2" class="furniture"><p>chair 2</p></div>
+<div id="chair3" class="furniture"><p>chair 3</p></div>
+<div id="chair4" class="furniture"><p>chair 4</p></div>
+<div id="kitchen" class="furniture"><p>kitchen space</p></div>
+<div id="sink" class="water"><p>kitchen sink</p></div>
+<div id="stove" class="electric"><p>stove</p></div>
+<div id="kitchenTop" class="furniture"><p>top shelf</p></div>
+<div id="fridge" class="electric"><p>fridge</p></div>
+
+<div id="desk1" class="furniture"><p>desk 1</p></div>
+<div id="chair5" class="furniture"><p>chair 5</p></div>
+<div id="desk2" class="furniture"><p>desk 2</p></div>
+<div id="chair6" class="furniture"><p>chair 6</p></div>
+
+<div id="bed1" class="furniture"><p>bed 1</p></div>
+<div id="bed2" class="furniture"><p>bed 2</p></div>
+<div id="drawer1" class="furniture"><p>drawer 1</p></div>
+<div id="drawer2" class="furniture"><p>drawer 2</p></div>
+
+<div id="table2" class="furniture"><p>coffee table</p></div>
+<div id="sofa1" class="furniture"><p>sofa 1</p></div>
+<div id="sofa2" class="furniture"><p>sofa 2</p></div>
+
+<div id="table3" class="furniture"><p>table 3</p></div>
+
+<div id="toilet" class="water"><p>toilet</p></div>
+<div id="fountain" class="water"><p>bathroom sink</p></div>
+<div id="bath" class="water"><p>bathtub</p></div>
+
+<div id="light1" class="electric"><p>light 1</p></div>
+<div id="light2" class="electric"><p>light 2</p></div>
+<div id="light3" class="electric"><p>light 3</p></div>
+<div id="light4" class="electric"><p>light 4</p></div>
+<div id="light5" class="electric"><p>light 5</p></div>
+</div>
+
+
+<div class="words">
+<h1>Room 1029A</h1>
+<h2>This is an actually existing room in Rhode Island School of Design, 15 Westminster St Providence. The website is a prototype of the space where students, especially freshmen, can access and grab some information about a particular room. Ideally, the website will be designed with further detailed conditions, and has every room in 15 West.</h2>
+</h2>The model was initially 3D rendered with Rhino, under Adam Smith's workshop 2015.</h2>
+</div>
+
+
+ <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+ <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+  <script>
+ $(function() {
+    function runEffect() {
+      var selectedEffect = $().val();
+      var options = {};
+      
+      $( ".door" ).toggle( selectedEffect, options, 500 );
+    };
+ 
+    $( "#door" ).click(function() {
+      runEffect();
+    });
+  });
+ $(function() {
+    function runEffect() {
+      var selectedEffect = $().val();
+      var options = {};
+      
+      $( ".furniture" ).toggle( selectedEffect, options, 500 );
+    };
+ 
+    $( "#furniture" ).click(function() {
+      runEffect();
+    });
+  });
+ $(function() {
+    function runEffect() {
+      var selectedEffect = $().val();
+      var options = {};
+      
+      $( ".electric" ).toggle( selectedEffect, options, 500 );
+    };
+ 
+    $( "#electric" ).click(function() {
+      runEffect();
+    });
+  });
+  $(function() {
+    function runEffect() {
+      var selectedEffect = $().val();
+      var options = {};
+      
+      $( ".water" ).toggle( selectedEffect, options, 500 );
+    };
+ 
+    $( "#water" ).click(function() {
+      runEffect();
+    });
+  });
+    $(function() {
+    function runEffect() {
+      var selectedEffect = $().val();
+      var options = {};
+      
+      $( ".plug" ).toggle( selectedEffect, options, 500 );
+    };
+ 
+    $( "#outlet" ).click(function() {
+      runEffect();
+    });
+  });
+        $(function() {
+    function runEffect() {
+      var selectedEffect = $().val();
+      var options = {};
+      
+      $( ".trash" ).toggle( selectedEffect, options, 500 );
+    };
+ 
+    $( "#trash" ).click(function() {
+      runEffect();
+    });
+  });
+  </script>
+
+  <script>
+  $(function() {
+    $( "#chair1,#chair2,#chair3,#chair4,#chair5,#chair6,#bed1,#bed2,#drawer1,#drawer2,#table,#table2,#table3,#sofa1,#sofa2,#desk1,#desk2,#trash1" ).draggable({scroll: false });
+  });
+  </script>
+
+</body>
+</html>
